@@ -81,11 +81,11 @@ cc_library(
         "@abseil-cpp//absl/status:statusor",
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/strings:string_view",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//fuzztest/internal:logging",
-        "@com_google_fuzztest//fuzztest/internal:registration",
-        "@com_google_fuzztest//fuzztest/internal:registry",
-        "@com_google_fuzztest//fuzztest/internal:runtime",
+        "@fuzztest//common:logging",
+        "@fuzztest//fuzztest/internal:logging",
+        "@fuzztest//fuzztest/internal:registration",
+        "@fuzztest//fuzztest/internal:registry",
+        "@fuzztest//fuzztest/internal:runtime",
     ],
 )
 
@@ -96,8 +96,8 @@ cc_test(
         ":fuzztest_macros",
         "@abseil-cpp//absl/status",
         "@abseil-cpp//absl/strings",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//common:temp_dir",
+        "@fuzztest//common:logging",
+        "@fuzztest//common:temp_dir",
         "@googletest//:gtest_main",
     ],
 )
@@ -109,7 +109,7 @@ cc_library(
     deps = [
         "@abseil-cpp//absl/debugging:failure_signal_handler",
         "@abseil-cpp//absl/debugging:symbolize",
-        "@com_google_fuzztest//fuzztest:init_fuzztest",
+        "@fuzztest//fuzztest:init_fuzztest",
         "@googletest//:gtest",
     ],
 )
@@ -129,13 +129,13 @@ cc_library(
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/strings:str_format",
         "@abseil-cpp//absl/time",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//fuzztest/internal:configuration",
-        "@com_google_fuzztest//fuzztest/internal:flag_name",
-        "@com_google_fuzztest//fuzztest/internal:googletest_adaptor",
-        "@com_google_fuzztest//fuzztest/internal:io",
-        "@com_google_fuzztest//fuzztest/internal:registry",
-        "@com_google_fuzztest//fuzztest/internal:runtime",
+        "@fuzztest//common:logging",
+        "@fuzztest//fuzztest/internal:configuration",
+        "@fuzztest//fuzztest/internal:flag_name",
+        "@fuzztest//fuzztest/internal:googletest_adaptor",
+        "@fuzztest//fuzztest/internal:io",
+        "@fuzztest//fuzztest/internal:registry",
+        "@fuzztest//fuzztest/internal:runtime",
         "@googletest//:gtest",
     ],
     alwayslink = True,
@@ -168,10 +168,10 @@ cc_library(
         "@abseil-cpp//absl/random",
         "@abseil-cpp//absl/random:bit_gen_ref",
         "@abseil-cpp//absl/synchronization",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//fuzztest/internal:io",
-        "@com_google_fuzztest//fuzztest/internal/domains:core_domains_impl",
-        "@com_google_fuzztest//fuzztest/internal/domains:lazy",
+        "@fuzztest//common:logging",
+        "@fuzztest//fuzztest/internal:io",
+        "@fuzztest//fuzztest/internal/domains:core_domains_impl",
+        "@fuzztest//fuzztest/internal/domains:lazy",
     ],
     alwayslink = True,
 )
@@ -181,9 +181,9 @@ cc_library(
     hdrs = ["domain.h"],
     deps = [
         ":domain_core",
-        "@com_google_fuzztest//fuzztest/internal/domains:domains_impl",
-        "@com_google_fuzztest//fuzztest/internal/domains:in_regexp_impl",
-        "@com_google_fuzztest//fuzztest/internal/domains:protobuf_domain_impl",
+        "@fuzztest//fuzztest/internal/domains:domains_impl",
+        "@fuzztest//fuzztest/internal/domains:in_regexp_impl",
+        "@fuzztest//fuzztest/internal/domains:protobuf_domain_impl",
     ],
 )
 
@@ -199,15 +199,15 @@ cc_library(
         "@abseil-cpp//absl/status:statusor",
         "@abseil-cpp//absl/strings:string_view",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//fuzztest/internal:any",
-        "@com_google_fuzztest//fuzztest/internal:logging",
-        "@com_google_fuzztest//fuzztest/internal:meta",
-        "@com_google_fuzztest//fuzztest/internal:printer",
-        "@com_google_fuzztest//fuzztest/internal:serialization",
-        "@com_google_fuzztest//fuzztest/internal:type_support",
-        "@com_google_fuzztest//fuzztest/internal/domains:core_domains_impl",
-        "@com_google_fuzztest//fuzztest/internal/domains:utf",
+        "@fuzztest//common:logging",
+        "@fuzztest//fuzztest/internal:any",
+        "@fuzztest//fuzztest/internal:logging",
+        "@fuzztest//fuzztest/internal:meta",
+        "@fuzztest//fuzztest/internal:printer",
+        "@fuzztest//fuzztest/internal:serialization",
+        "@fuzztest//fuzztest/internal:type_support",
+        "@fuzztest//fuzztest/internal/domains:core_domains_impl",
+        "@fuzztest//fuzztest/internal/domains:utf",
     ],
 )
 
@@ -215,7 +215,7 @@ cc_library(
     name = "flatbuffers",
     hdrs = ["flatbuffers.h"],
     deps = [
-        "@com_google_fuzztest//fuzztest/internal/domains:flatbuffers_domain_impl",
+        "@fuzztest//fuzztest/internal/domains:flatbuffers_domain_impl",
     ],
 )
 
@@ -243,8 +243,8 @@ cc_library(
         "@abseil-cpp//absl/numeric:int128",
         "@abseil-cpp//absl/random:bit_gen_ref",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//fuzztest/internal:fuzzing_mock_stream",
-        "@com_google_fuzztest//fuzztest/internal:register_absl_fuzzing_mocks",
+        "@fuzztest//fuzztest/internal:fuzzing_mock_stream",
+        "@fuzztest//fuzztest/internal:register_absl_fuzzing_mocks",
     ],
 )
 
@@ -253,7 +253,7 @@ cc_library(
     testonly = True,
     hdrs = ["googletest_fixture_adapter.h"],
     deps = [
-        "@com_google_fuzztest//fuzztest/internal:fixture_driver",
+        "@fuzztest//fuzztest/internal:fixture_driver",
         "@googletest//:gtest",
     ],
 )
