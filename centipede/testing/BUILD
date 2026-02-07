@@ -20,7 +20,7 @@ load("@rules_shell//shell:sh_test.bzl", "sh_test")
 load(":build_defs.bzl", "centipede_fuzz_target")
 
 package(default_visibility = [
-    "@com_google_fuzztest//centipede:__subpackages__",
+    "@fuzztest//centipede:__subpackages__",
 ])
 
 licenses(["notice"])
@@ -60,8 +60,8 @@ cc_binary(
         "@abseil-cpp//absl/base:nullability",
         "@abseil-cpp//absl/flags:flag",
         "@abseil-cpp//absl/flags:parse",
-        "@com_google_fuzztest//centipede:centipede_runner_no_main",
-        "@com_google_fuzztest//common:defs",
+        "@fuzztest//centipede:centipede_runner_no_main",
+        "@fuzztest//common:defs",
     ],
 )
 
@@ -85,9 +85,9 @@ cc_binary(
         "@abseil-cpp//absl/flags:flag",
         "@abseil-cpp//absl/flags:parse",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//centipede:centipede_runner_no_main",
-        "@com_google_fuzztest//centipede:mutation_data",
-        "@com_google_fuzztest//common:defs",
+        "@fuzztest//centipede:centipede_runner_no_main",
+        "@fuzztest//centipede:mutation_data",
+        "@fuzztest//common:defs",
     ],
 )
 
@@ -125,8 +125,8 @@ cc_binary(
     ],
     deps = [
         "@abseil-cpp//absl/base:nullability",
-        "@com_google_fuzztest//centipede:centipede_runner_no_main",
-        "@com_google_fuzztest//common:defs",
+        "@fuzztest//centipede:centipede_runner_no_main",
+        "@fuzztest//common:defs",
     ],
 )
 
@@ -148,7 +148,7 @@ cc_binary(
     deps = [
         "@abseil-cpp//absl/log:check",
         "@abseil-cpp//absl/strings",
-        "@com_google_fuzztest//centipede:centipede_runner_no_main",
+        "@fuzztest//centipede:centipede_runner_no_main",
     ],
 )
 
@@ -170,8 +170,8 @@ cc_binary(
     deps = [
         "@abseil-cpp//absl/base:nullability",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//centipede:centipede_runner_no_main",
-        "@com_google_fuzztest//common:defs",
+        "@fuzztest//centipede:centipede_runner_no_main",
+        "@fuzztest//common:defs",
     ],
 )
 
@@ -193,8 +193,8 @@ cc_binary(
         "@abseil-cpp//absl/base:nullability",
         "@abseil-cpp//absl/log:check",
         "@abseil-cpp//absl/strings",
-        "@com_google_fuzztest//centipede:centipede_runner_no_main",
-        "@com_google_fuzztest//common:defs",
+        "@fuzztest//centipede:centipede_runner_no_main",
+        "@fuzztest//common:defs",
     ],
 )
 
@@ -288,7 +288,7 @@ cc_binary(
     ],
     deps = [
         ":multi_dso_target_lib",
-        "@com_google_fuzztest//centipede:centipede_runner",
+        "@fuzztest//centipede:centipede_runner",
     ],
 )
 
@@ -315,7 +315,7 @@ cc_binary(
     linkstatic = False,
     deps = [
         ":data_only_dso_target_lib",
-        "@com_google_fuzztest//centipede:centipede_runner",
+        "@fuzztest//centipede:centipede_runner",
     ],
 )
 
@@ -360,9 +360,9 @@ sh_test(
     data = [
         ":abort_fuzz_target",
         ":test_fuzz_target",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_fuzzing_util_sh",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_fuzzing_util_sh",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -372,8 +372,8 @@ sh_test(
     data = [
         ":test_fuzz_target",
         ":test_fuzz_target_non_pie",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -382,7 +382,7 @@ sh_test(
     srcs = ["instrumentation_test.sh"],
     data = [
         ":empty_fuzz_target",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -391,7 +391,7 @@ sh_test(
     srcs = ["dump_binary_info_test.sh"],
     data = [
         ":multi_dso_target",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -400,8 +400,8 @@ sh_test(
     srcs = ["multi_dso_test.sh"],
     data = [
         ":multi_dso_target",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -410,8 +410,8 @@ sh_test(
     srcs = ["data_only_dso_test.sh"],
     data = [
         ":data_only_dso_target",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -420,8 +420,8 @@ sh_test(
     srcs = ["trace_pc_test.sh"],
     data = [
         ":abort_fuzz_target_trace_pc",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -430,8 +430,8 @@ sh_test(
     srcs = ["inline_8bit_counters_test.sh"],
     data = [
         ":abort_fuzz_target_inline_8bit_counters",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -440,8 +440,8 @@ sh_test(
     srcs = ["minimize_crash_test.sh"],
     data = [
         ":minimize_me_fuzz_target",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -450,8 +450,8 @@ sh_test(
     srcs = ["runner_cleanup_test.sh"],
     data = [
         ":random_rejecting_fuzz_target",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -460,8 +460,8 @@ sh_test(
     srcs = ["user_defined_features_test.sh"],
     data = [
         ":user_defined_features_target",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -470,8 +470,8 @@ sh_test(
     srcs = ["no_startup_features_test.sh"],
     data = [
         ":expensive_startup_fuzz_target",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -482,8 +482,8 @@ sh_test(
     data = [
         "clusterfuzz_format_sanitized_target",
         "clusterfuzz_format_target",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )
 
@@ -493,7 +493,7 @@ sh_test(
     data = [
         ":external_target",
         ":external_target_server",
-        "@com_google_fuzztest//centipede",
-        "@com_google_fuzztest//centipede:test_util_sh",
+        "@fuzztest//centipede",
+        "@fuzztest//centipede:test_util_sh",
     ],
 )

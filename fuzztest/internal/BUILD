@@ -18,7 +18,7 @@ load("@rules_cc//cc:cc_test.bzl", "cc_test")
 load("@protobuf//bazel:cc_proto_library.bzl", "cc_proto_library")
 load("@protobuf//bazel:proto_library.bzl", "proto_library")
 
-package(default_visibility = ["@com_google_fuzztest//:__subpackages__"])
+package(default_visibility = ["@fuzztest//:__subpackages__"])
 
 licenses(["notice"])
 
@@ -28,7 +28,7 @@ cc_library(
     deps = [
         ":logging",
         ":meta",
-        "@com_google_fuzztest//common:logging",
+        "@fuzztest//common:logging",
     ],
 )
 
@@ -92,21 +92,21 @@ cc_library(
         "@abseil-cpp//absl/strings:string_view",
         "@abseil-cpp//absl/time",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//centipede:centipede_callbacks",
-        "@com_google_fuzztest//centipede:centipede_default_callbacks",
-        "@com_google_fuzztest//centipede:centipede_interface",
-        "@com_google_fuzztest//centipede:centipede_runner_no_main",
-        "@com_google_fuzztest//centipede:environment",
-        "@com_google_fuzztest//centipede:fuzztest_mutator",
-        "@com_google_fuzztest//centipede:mutation_data",
-        "@com_google_fuzztest//centipede:runner_result",
-        "@com_google_fuzztest//centipede:stop",
-        "@com_google_fuzztest//centipede:workdir",
-        "@com_google_fuzztest//common:defs",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//common:remote_file",
-        "@com_google_fuzztest//common:temp_dir",
-        "@com_google_fuzztest//fuzztest/internal/domains:core_domains_impl",
+        "@fuzztest//centipede:centipede_callbacks",
+        "@fuzztest//centipede:centipede_default_callbacks",
+        "@fuzztest//centipede:centipede_interface",
+        "@fuzztest//centipede:centipede_runner_no_main",
+        "@fuzztest//centipede:environment",
+        "@fuzztest//centipede:fuzztest_mutator",
+        "@fuzztest//centipede:mutation_data",
+        "@fuzztest//centipede:runner_result",
+        "@fuzztest//centipede:stop",
+        "@fuzztest//centipede:workdir",
+        "@fuzztest//common:defs",
+        "@fuzztest//common:logging",
+        "@fuzztest//common:remote_file",
+        "@fuzztest//common:temp_dir",
+        "@fuzztest//fuzztest/internal/domains:core_domains_impl",
     ],
 )
 
@@ -122,7 +122,7 @@ cc_library(
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/strings:str_format",
         "@abseil-cpp//absl/time",
-        "@com_google_fuzztest//fuzztest/internal/domains:core_domains_impl",
+        "@fuzztest//fuzztest/internal/domains:core_domains_impl",
     ] + select({
         "//conditions:default": [],
     }),
@@ -138,7 +138,7 @@ cc_library(
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/strings:string_view",
         "@abseil-cpp//absl/time",
-        "@com_google_fuzztest//common:logging",
+        "@fuzztest//common:logging",
     ],
 )
 
@@ -170,7 +170,7 @@ cc_library(
     srcs = ["coverage.cc"],
     hdrs = ["coverage.h"],
     defines = select({
-        "@com_google_fuzztest//fuzztest:use_centipede": ["FUZZTEST_USE_CENTIPEDE"],
+        "@fuzztest//fuzztest:use_centipede": ["FUZZTEST_USE_CENTIPEDE"],
         "//conditions:default": [],
     }),
     deps = [
@@ -180,7 +180,7 @@ cc_library(
         "@abseil-cpp//absl/base:core_headers",
         "@abseil-cpp//absl/strings:str_format",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//common:logging",
+        "@fuzztest//common:logging",
     ],
 )
 
@@ -206,7 +206,7 @@ cc_library(
         "@abseil-cpp//absl/status",
         "@abseil-cpp//absl/strings:str_format",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//fuzztest/internal/domains:core_domains_impl",
+        "@fuzztest//fuzztest/internal/domains:core_domains_impl",
     ],
 )
 
@@ -221,8 +221,8 @@ cc_test(
         ":registration",
         "@abseil-cpp//absl/functional:any_invocable",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//fuzztest:domain_core",
+        "@fuzztest//common:logging",
+        "@fuzztest//fuzztest:domain_core",
         "@googletest//:gtest_main",
     ],
 )
@@ -247,10 +247,10 @@ cc_library(
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/strings:str_format",
         "@abseil-cpp//absl/strings:string_view",
-        "@com_google_fuzztest//common:logging",
+        "@fuzztest//common:logging",
         "@googletest//:gtest",
     ] + select({
-        "@com_google_fuzztest//fuzztest:use_centipede": [":centipede_adaptor"],
+        "@fuzztest//fuzztest:use_centipede": [":centipede_adaptor"],
         "//conditions:default": [],
     }),
 )
@@ -268,10 +268,10 @@ cc_library(
         "@abseil-cpp//absl/strings:string_view",
         "@abseil-cpp//absl/time",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//common:blob_file",
-        "@com_google_fuzztest//common:defs",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//common:remote_file",
+        "@fuzztest//common:blob_file",
+        "@fuzztest//common:defs",
+        "@fuzztest//common:logging",
+        "@fuzztest//common:remote_file",
     ] + select({
         "//conditions:default": [],
     }),
@@ -285,10 +285,10 @@ cc_test(
         "@abseil-cpp//absl/status",
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/time",
-        "@com_google_fuzztest//common:blob_file",
-        "@com_google_fuzztest//common:defs",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//common:temp_dir",
+        "@fuzztest//common:blob_file",
+        "@fuzztest//common:defs",
+        "@fuzztest//common:logging",
+        "@fuzztest//common:temp_dir",
         "@googletest//:gtest_main",
     ],
 )
@@ -301,7 +301,7 @@ cc_library(
         "@abseil-cpp//absl/base:core_headers",
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/synchronization",
-        "@com_google_fuzztest//common:logging",
+        "@fuzztest//common:logging",
     ],
 )
 
@@ -348,7 +348,7 @@ cc_test(
     deps = [
         "@abseil-cpp//absl/random",
         "@abseil-cpp//absl/random:bit_gen_ref",
-        "@com_google_fuzztest//fuzztest:fuzzing_bit_gen",
+        "@fuzztest//fuzztest:fuzzing_bit_gen",
         "@googletest//:gtest_main",
     ],
 )
@@ -364,8 +364,8 @@ cc_library(
         "@abseil-cpp//absl/status",
         "@abseil-cpp//absl/strings:str_format",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//fuzztest:domain_core",
-        "@com_google_fuzztest//fuzztest/internal/domains:core_domains_impl",
+        "@fuzztest//fuzztest:domain_core",
+        "@fuzztest//fuzztest/internal/domains:core_domains_impl",
     ],
 )
 
@@ -382,7 +382,7 @@ cc_library(
         "@abseil-cpp//absl/functional:function_ref",
         "@abseil-cpp//absl/strings:string_view",
     ] + select({
-        "@com_google_fuzztest//fuzztest:use_centipede": [":centipede_adaptor"],
+        "@fuzztest//fuzztest:use_centipede": [":centipede_adaptor"],
         "//conditions:default": [],
     }),
 )
@@ -418,10 +418,10 @@ cc_library(
         "@abseil-cpp//absl/strings:str_format",
         "@abseil-cpp//absl/time",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//common:bazel",
-        "@com_google_fuzztest//common:crashing_input_filename",
-        "@com_google_fuzztest//common:logging",
-        "@com_google_fuzztest//fuzztest/internal/domains:core_domains_impl",
+        "@fuzztest//common:bazel",
+        "@fuzztest//common:crashing_input_filename",
+        "@fuzztest//common:logging",
+        "@fuzztest//fuzztest/internal/domains:core_domains_impl",
     ],
 )
 
@@ -435,7 +435,7 @@ cc_test(
         "@abseil-cpp//absl/status:statusor",
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/time",
-        "@com_google_fuzztest//fuzztest:domain_core",
+        "@fuzztest//fuzztest:domain_core",
         "@googletest//:gtest_main",
     ],
 )
@@ -471,7 +471,7 @@ cc_library(
         "@abseil-cpp//absl/random",
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//common:logging",
+        "@fuzztest//common:logging",
     ],
 )
 
@@ -532,7 +532,7 @@ cc_library(
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/time",
         "@abseil-cpp//absl/types:span",
-        "@com_google_fuzztest//common:logging",
+        "@fuzztest//common:logging",
     ],
 )
 
@@ -592,7 +592,7 @@ cc_library(
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/strings:str_format",
         "@abseil-cpp//absl/time",
-        "@com_google_fuzztest//fuzztest/internal/domains:absl_helpers",
+        "@fuzztest//fuzztest/internal/domains:absl_helpers",
     ],
 )
 
@@ -608,7 +608,7 @@ cc_test(
         "@abseil-cpp//absl/strings",
         "@abseil-cpp//absl/strings:str_format",
         "@abseil-cpp//absl/time",
-        "@com_google_fuzztest//fuzztest:domain",
+        "@fuzztest//fuzztest:domain",
         "@googletest//:gtest_main",
         "@protobuf",
     ],
