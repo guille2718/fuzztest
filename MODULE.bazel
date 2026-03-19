@@ -47,6 +47,14 @@ bazel_dep(
     # rules_foreign_cc and aspect_bazel_lib below.
     version = "25.12.19",
 )
+git_override(
+    module_name = "flatbuffers",
+    # Fix rules_swift compatibility with Bazel 9: sets
+    # max_compatibility_level=3 for rules_swift to support both 2.x and 3.x.
+    # See https://github.com/nicledomaique/flatbuffers/commit/03fffb25e2d7
+    commit = "03fffb25e2d777462b719cb4964249c30b19d58f",
+    remote = "https://github.com/google/flatbuffers.git",
+)
 
 # Needed to override problematic versions of the modules transitively inherited
 # from flatbuffers. To check if this is still needed, comment out the overrides
