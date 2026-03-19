@@ -14,8 +14,6 @@
 
 load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
 
-package(default_compatible_with = ["//buildenv/target:non_prod"])
-
 licenses(["notice"])
 
 # Debugging tools
