@@ -97,7 +97,7 @@ int main(int argc, char* argv[]) {
   absl::ParseCommandLine(argc, argv);
   auto status = fuzztest::internal::FeatureAnalyzerMain();
   if (!status.ok()) {
-    std::cerr << status.error_message() << std::endl;
+    std::cerr << status.message() << std::endl;
     return 1;
   }
   return 0;
