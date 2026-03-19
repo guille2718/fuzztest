@@ -74,6 +74,20 @@ single_version_override(
     version = "2.22.5",
 )
 
+# rules_go 0.50.1 (pulled by grpc/protobuf) uses the CcInfo symbol which was
+# removed from Bazel core in Bazel 9. Override to a Bazel 9-compatible version.
+single_version_override(
+    module_name = "rules_go",
+    version = "0.60.0",
+)
+
+# aspect_rules_esbuild 0.21.0 (pulled by flatbuffers) uses the removed
+# incompatible_use_toolchain_transition kwarg in Bazel 9.
+single_version_override(
+    module_name = "aspect_rules_esbuild",
+    version = "0.25.1",
+)
+
 # GoogleTest is not a dev dependency, because it's needed when FuzzTest is used
 # with GoogleTest integration (e.g., googletest_adaptor). Note that the FuzzTest
 # framework can be used without GoogleTest integration as well.

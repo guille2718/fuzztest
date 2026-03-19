@@ -14,9 +14,12 @@
 
 common --enable_platform_specific_config
 
+# TODO: Remove when downstream dependencies work with Bazel 9.
+common --incompatible_autoload_externally="+@rules_cc,@rules_python,@rules_shell"
+
 # Force the use of Clang for all builds.
-build --action_env=CC=clang
-build --action_env=CXX=clang++
+build --repo_env=CC=clang
+build --repo_env=CXX=clang++
 
 # Use the C++17 standard.
 build --cxxopt=-std=c++17
