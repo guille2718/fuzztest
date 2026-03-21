@@ -47,7 +47,7 @@ namespace google::protobuf {
 class EnumDescriptor;
 
 template <typename E>
-const EnumDescriptor* GetEnumDescriptor();
+const EnumDescriptor* absl_nullability_unknown GetEnumDescriptor();
 }  // namespace google::protobuf
 
 namespace fuzztest::internal {
